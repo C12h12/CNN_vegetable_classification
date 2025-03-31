@@ -1,0 +1,35 @@
+data:
+  csv_folder: ../data/raw/Vegetable Images
+  processed_folder: ../data/processed
+
+
+processed_data:
+  train: ../data/processed/train
+  test: ../data/processed/test
+
+model:
+  trainable: True
+  image_size: [255,255]
+  num_class: 15
+  loss: 'categorical_crossentropy'
+  optimizer: 'adam'
+  metrics: ['accuracy']
+  epochs: 7
+  model_path: ../models/model1_vgg16.h5
+  
+
+img_augment:
+  rescale: 0.00392156862745098
+  shear_range: 0.2
+  zoom_range: 0.2
+  horizontal_flip: True
+  vertical_flip: True
+  batch_size: 32
+  class_mode: 'categorical'
+
+mlflow_config:
+  artifact_dir: artifacts
+  experiment_name: Dl_miniproject_cnn_vgg16
+  registered_model_name: Dl_miniproject_model1
+  remote_server_uri: http://127.0.0.1:5000
+  run_name: Run1
